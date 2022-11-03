@@ -1,0 +1,51 @@
+<button type="button" routerLink="/adding-new">Add</button>
+
+<form #f="ngForm">
+  <div>
+    <label>Show only tasks assigned to:
+      <!--calling the getTaskByPerson method parameter: selected option-->
+      <select id="assignedPerson" name="assignedPerson" [(ngModel)]="selectedPerson" (change)="getTodoList(selectedPerson, selectedStatus)">
+        <option *ngFor="let item of peopleList()" value="{{item}}">{{item}}</option>
+      </select>
+    </label>
+  </div>
+  <div>
+    <label>Show only tasks with status:
+      <!--calling the getTaskByPerson method parameter: selected option-->
+      <select id="assignedPerson" name="assignedPerson" [(ngModel)]="selectedStatus" (change)="getTodoList(selectedPerson, selectedStatus)">
+        <option>All</option>
+        <option>Done</option>
+        <option>Not Done</option>
+      </select>
+    </label>
+  </div>
+
+
+  <table>
+    <tr>
+      <th>Task</th>
+      <th>Assigned to</th>
+      <th>Already done</th>
+      <th>Options</th>
+    </tr>
+
+    <tr *ngFor=" let item of getTodoList(selectedPerson, selectedStatus)">
+      <td>{{item.description}}</td>
+      <td>{{item.assignedPerson}}</td>
+
+      <td>
+        <label>
+          <input type="checkbox" id="isDoneCheckbox" name="isDoneCheckbox"
+          [(ngModel)]="item.isDone">
+        </label>
+      </td>
+      <td>
+        <button type="button" class="edit" routerLink="/edit" (click)="editTask(item)">Edit</button>
+        <button type="button" class = "delete" (click)="deleteTask(item)">Delete</button>
+      </td>
+  </tr>
+
+  </table>
+</form>
+
+

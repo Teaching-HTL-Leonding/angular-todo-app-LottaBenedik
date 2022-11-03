@@ -1,0 +1,30 @@
+<form #f="ngForm">
+  <div>
+    <label>Description:
+      <input type="text" id="description" name="description"
+      [(ngModel)]="taskToEdit.description" required
+      minlength="2" maxlength="50" #description="ngModel" />
+    </label>
+    <p [hidden]="!description.errors?.['minlength'] || description.pristine">
+      The input you provided is too short. Please add more data.
+    </p>
+    <p [hidden]="!description.errors?.['required'] || description.pristine">
+      This is a required field. Please enter something.
+    </p>
+  </div>
+  <div>
+    <label>Assigned Person
+    <input type="text" id="assignedPerson" name="assignedPerson"
+      [(ngModel)]="taskToEdit.assignedPerson"/>
+    </label>
+  </div>
+  <div>
+    <label>Already Done?
+      <input type="checkbox" id="isDone" name="isDone"
+      [(ngModel)]="taskToEdit.isDone">
+    </label>
+  </div>
+</form>
+
+<button type="button" routerLink="/todo-list">Done</button>
+

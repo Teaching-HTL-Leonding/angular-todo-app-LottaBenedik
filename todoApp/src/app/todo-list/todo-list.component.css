@@ -1,0 +1,34 @@
+button.delete{
+  background-color:rgb(243, 101, 101);
+  border-radius: 5px;
+  border: 1px solid rgb(243, 101, 101);
+}
+button.edit{
+  background-color: rgb(132, 244, 151);
+  border-radius: 5px;
+  border: 1px solid rgb(103, 243, 101);
+  padding-left: 13px;
+  padding-right: 13px;
+}
+button.edit:hover{
+  background-color: rgb(82, 173, 97);
+  border-radius: 5px;
+  border: 1px solid rgb(82, 173, 97);
+  padding-left: 13px;
+  padding-right: 13px;
+}
+button.delete:hover{
+  background-color: rgb(240, 88, 88);
+  border-radius: 5px;
+  border: 1px solid rgb(240, 88, 88);
+}
+
+table, th, td {
+  border: 1px solid;
+  width: 50%;
+  border-collapse: collapse;
+  padding:5px;
+  margin: 5px
+
+}
+

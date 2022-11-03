@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+button {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+* {
+  font-family: sans-serif;
+}
+
+div{
+  margin: 10px;
+}

@@ -1,0 +1,32 @@
+<button type="button" routerLink="/todo-list">Go Back</button>
+
+<form #f="ngForm">
+  <div>
+    <label>Description:
+      <input type="text" id="description" name="description"
+      [(ngModel)]="newItem.description" required
+      minlength="2" maxlength="50" #description="ngModel" />
+    </label>
+    <p [hidden]="!description.errors?.['minlength'] || description.pristine">
+      The input you provided is too short. Please add more data.
+    </p>
+    <p [hidden]="!description.errors?.['required'] || description.pristine">
+      This is a required field. Please enter something.
+    </p>
+  </div>
+  <div>
+    <label>Assigned Person
+    <input type="text" id="assignedPerson" name="assignedPerson"
+      [(ngModel)]="newItem.assignedPerson"/>
+    </label>
+  </div>
+  <div>
+    <label>Already Done?
+      <input type="checkbox" id="isDone" name="isDone"
+      [(ngModel)]="newItem.isDone">
+    </label>
+  </div>
+</form>
+
+<button type="button" (click)="saveNewTask()" [disabled]="!f.form.valid">Save</button>
+
